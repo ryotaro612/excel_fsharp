@@ -29,4 +29,13 @@ sheet.Range("B3", "B12").Value2 <- names
 sheet.Range("C3", "E12").Value2 <- data
 
 let charts : ChartObjects = sheet.ChartObjects() :?> ChartObjects
+let chartobject: ChartObject = charts.Add(400.0, 20.0, 550.0, 350.0) 
+let chart = chartobject.Chart
 
+let series: SeriesCollection = chart.SeriesCollection() :?> SeriesCollection
+
+chart.ChartWizard(Source = sheet.Range("C2", "E12"),
+                  Gallery = XlChartType.xlXYScatterLines, 
+                  SeriesLabels = 1,
+                  CategoryTitle = "answer",
+                  ValueTitle = "alphabet")
