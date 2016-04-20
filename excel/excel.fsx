@@ -1,5 +1,5 @@
 #r "Microsoft.Office.Interop.Excel"
-
+(* Reference: https://msdn.microsoft.com/EN-US/library/microsoft.office.interop.excel.aspx *)
 open System
 open System.IO
 open System.Reflection
