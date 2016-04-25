@@ -55,8 +55,8 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
   <ItemGroup>
-    <Compile Include="Tutorial.fsx" />
     <None Include="excel.fsx" />
+    <None Include="Tutorial.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

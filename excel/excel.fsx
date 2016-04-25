@@ -5,15 +5,15 @@ open System.IO
 open System.Reflection
 open Microsoft.Office.Interop.Excel
 
-// If Visible is false, you can't see the following operations.
+// If Visible is false, you can't see the excel file.
 let app = ApplicationClass(Visible=true)
 let wb = app.Workbooks.Add()
 let sheet = wb.Worksheets.[1] :?> _Worksheet
-sheet.Name <- "add a sheet"
 sheet.Copy(sheet, Type.Missing) // copy a sheet.
-// wb.SaveAs("abc.xlsx")
+sheet.Name <- "add a sheet"
 
-sheet.Cells.[1,1] <- "foo" // add value
+
+sheet.Cells.[1,1] <- "foo" // set a value
 
 (* The value of a range can be set using Value2 property.
    https://msdn.microsoft.com/en-us/library/hh297098(v=vs.100).aspx *)
@@ -39,3 +39,5 @@ chart.ChartWizard(Source = sheet.Range("C2", "E12"),
                   SeriesLabels = 1,
                   CategoryTitle = "answer",
                   ValueTitle = "alphabet")
+
+wb.SaveAs("abc.xlsx")
