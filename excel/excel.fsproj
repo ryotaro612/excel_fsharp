@@ -57,6 +57,7 @@
   <ItemGroup>
     <None Include="excel.fsx" />
     <None Include="Tutorial.fsx" />
+    <None Include="exlwt.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
