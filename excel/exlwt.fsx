@@ -1,11 +1,10 @@
-﻿
-open System
+﻿open System
 
 let rec getLines lines :String List  =
-    let a = Console.ReadLine()
-    sprintf "%s" a
-    getLines (List.append lines [a])
+    match Console.ReadLine() with
+    | null -> lines
+    | str -> getLines (List.append lines [str])
 
 let a: String list = getLines []
 
-a |> List.iter (fun x -> printf "%s " x)
+a |> List.iter (fun l -> printfn "%s" l)
