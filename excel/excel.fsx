@@ -6,15 +6,13 @@ open System.Reflection
 open Microsoft.Office.Interop.Excel
 
 // If Visible is false, you can't see the excel file.
-let app = ApplicationClass(Visible=true)
+let app :ApplicationClass = ApplicationClass(Visible=true)
 let wb = app.Workbooks.Add()
 let sheet = wb.Worksheets.[1] :?> _Worksheet
 sheet.Copy(sheet, Type.Missing) // copy a sheet.
 sheet.Name <- "add a sheet"
 
-
 sheet.Cells.[1,1] <- "foo" // set a value
-
 (* The value of a range can be set using Value2 property.
    https://msdn.microsoft.com/en-us/library/hh297098(v=vs.100).aspx *)
 // Store data in arrays of strings or floats
@@ -33,7 +31,6 @@ let chartobject: ChartObject = charts.Add(400.0, 20.0, 550.0, 350.0)
 let chart = chartobject.Chart
 
 let series: SeriesCollection = chart.SeriesCollection() :?> SeriesCollection
-
 chart.ChartWizard(Source = sheet.Range("C2", "E12"),
                   Gallery = XlChartType.xlXYScatterLines, 
                   SeriesLabels = 1,
